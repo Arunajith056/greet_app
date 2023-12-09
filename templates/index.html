@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Say Hello</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <center>
+        <img src="https://www.perfettivanmelle.com/media/36383/say-hello_500x249.jpg.png" alt="hello-image"><br><br><br>
+    <form action="{{ url_for('greet') }}" method="POST" autocomplete="off">
+        {% with messages = get_flashed_messages() %}
+        {% for message in messages %}
+          
+            <h1>{{ message }}</h1>
+        
+        {% endfor %}
+      {% endwith %}
+        
+        <br>
+        <br><br>
+        <div class="mb-3">
+            <label for="name" class="form-label"><h2>Enter Your name</h2></label>
+            <input type="text" class="form-control half-width" id="name" name="name" required>
+          </div>
+          
+          
+        <input type="submit" class="btn btn-primary" value="GREET" id="greet">
+    </form>
+    
+</center>
+    
+
+
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</body>
+</html>
